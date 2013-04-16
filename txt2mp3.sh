@@ -31,7 +31,6 @@ elif [[ $# -gt 0 ]] && [[ "${1}" != "--help" ]]; then
 
 	# get path
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
-	# echo $DIR;
 
 	# set log file
 	LOGFILE="${DIR}/logfile.log";
@@ -61,7 +60,6 @@ elif [[ $# -gt 0 ]] && [[ "${1}" != "--help" ]]; then
 		
 		# convert file to mp3
 		echo "--> converting ${FILE}.aiff to ${FILE}.mp3";
-		# `ffmpeg -y -i ${FILE}.aiff ${FILE}.mp3 >>${LOGFILE} 2>&1`; # not working well, itunes gets wrong track length
 		lame -h -m m -b 32 ${FILE}.aiff ${FILE}.mp3 >>${LOGFILE} 2>&1;
 		checkExitStatus;
 		
